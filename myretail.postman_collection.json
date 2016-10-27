@@ -1,0 +1,59 @@
+{
+	"variables": [],
+	"info": {
+		"name": "myretail",
+		"_postman_id": "b6ab0176-e306-8dc8-93d9-5e59eb8a5ddc",
+		"description": "Target MyRetail Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"request": {
+				"url": "http://localhost:9090/api/products",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get A Product",
+			"request": {
+				"url": "http://localhost:9090/api/products/13860428",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Price",
+			"request": {
+				"url": "http://localhost:9090/api/products/13860428/price",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"value\": 13.49,\n    \"currency_code\": \"USD\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

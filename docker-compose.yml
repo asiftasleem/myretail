@@ -1,0 +1,21 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo:3.2
+    ports:
+     - "27017:27017"
+  products-service:
+    image: products-service
+    depends_on:
+     - eureka-server
+     - mongodb
+  eureka-server:
+    image: eureka-server
+    ports:
+     - "8761:8761"
+  zuul-server:
+    image: zuul-server
+    depends_on:
+     - eureka-server
+    ports:
+     - "9090:9090"
