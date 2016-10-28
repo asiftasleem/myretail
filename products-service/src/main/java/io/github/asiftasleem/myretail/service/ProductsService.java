@@ -3,7 +3,8 @@
  */
 package io.github.asiftasleem.myretail.service;
 
-import io.github.asiftasleem.myretail.model.Price;
+import java.util.concurrent.ExecutionException;
+
 import io.github.asiftasleem.myretail.model.Product;
 
 /**
@@ -12,7 +13,7 @@ import io.github.asiftasleem.myretail.model.Product;
  */
 public interface ProductsService {
 	
-	Product getProduct(String id);
-	void updateProductPrice(String id, Price price);
+	Product getProduct(String id) throws InterruptedException, ExecutionException;
+	Product updateProductPrice(String id, Product price);
 
 }

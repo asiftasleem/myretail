@@ -15,4 +15,6 @@ import io.github.asiftasleem.myretail.model.Price;
 @Repository
 public interface PriceRepository extends MongoRepository<Price, String> {
 
+	public Price save(Price price);
+
 }

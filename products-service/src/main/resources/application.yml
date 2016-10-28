@@ -15,9 +15,9 @@ eureka:
 
 spring:
   application:
-    name: products-service    
+    name: products-service
   data:
     mongodb:
       database: myretail
       host: mongodb
-      port: 27017
+      port: 27017    

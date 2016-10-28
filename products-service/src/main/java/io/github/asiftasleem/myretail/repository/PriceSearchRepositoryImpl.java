@@ -17,16 +17,16 @@ import io.github.asiftasleem.myretail.model.Price;
  *
  */
 @Repository
-public class ProductSearchRepositoryImpl implements PriceSearchRepository{
+class PriceSearchRepositoryImpl implements PriceSearchRepository{
 	
 
 	@Autowired
 	MongoTemplate mongoTemplate;
 	
-	public Price searchProductCurrentPrice(String id) {
+	public Price searchProductCurrentPrice(String productId) {
 		Query query = new Query();
-		query.addCriteria(Criteria.where("id").is(id));
-		query.with(new Sort(Sort.Direction.DESC, "timestamp"));
+		query.addCriteria(Criteria.where("productId").is(productId));
+		query.with(new Sort(Sort.Direction.DESC, "createdAt"));
 		query.limit(1);
 		
 		return mongoTemplate.findOne(query, Price.class);

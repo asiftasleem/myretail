@@ -4,9 +4,10 @@
 package io.github.asiftasleem.myretail.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,22 +31,27 @@ public class Price implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@JsonIgnore
+	@Id
+	private String id;
 
 	@JsonIgnore
-	private String id;
+	@Indexed
+	private String productId;
 	
 	@JsonProperty("value")
-	private BigDecimal value;
+	private String value;
 	
 	@JsonProperty("currency_code")
-	private String currency;
+	private String currencyCode;
 	
 	@JsonIgnore
-	private Date timestamp;
+	//@CreatedDate
+	private Date createdAt = new Date();
 	
 	public Price(String value, String currencyCode){
-		this.value = new BigDecimal(value);
-		this.currency = currencyCode;		
+		this.value = value;
+		this.currencyCode = currencyCode;		
 	}
 
 }
